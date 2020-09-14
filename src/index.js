@@ -1,8 +1,21 @@
-import React from 'react';
+import React, {  useState } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { Ispis } from './Components/Ispis';
+import { Odabir } from './Components/Odabir';
+
+
+const App = () => {
+    const [ispis, setIspis] = useState([])
+    const [kontinent, setKontinent] = useState([])
+    
+  return(
+    <>
+    <Odabir  kontinent={kontinent} setKontinent={setKontinent} setIspis={setIspis} ispis={ispis}/>
+    <br></br>
+    <Ispis ispis={ispis} setIspis={setIspis}/>
+    </>
+  )
+}
 
 ReactDOM.render(
   <React.StrictMode>
@@ -11,7 +24,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+
